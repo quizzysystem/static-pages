@@ -1,0 +1,362 @@
+@import "../../abstract/theme";
+@import "../../abstract/selectors";
+@import "../../abstract/mixins";
+@import "../../base/indents";
+@import "../../base/typography";
+
+$color--primary: $teal--300;
+$color--primary-hover: $teal--200;
+$color--primary-active: $teal--400;
+
+$btn-secondary: rgba($color--black, .07);
+$btn-secondary--hover: rgba(212,212,212, .2095);
+$btn-secondary--active: rgba($color--black, .1165);
+
+$btn-red: #D95767;
+$btn-red--hover: #DF707E;
+$btn-red--active: #CE5362;
+
+$btn-yellow: #e4b83a;
+$btn-yellow--hover: #E8C358;
+$btn-yellow--active: #D9AF37;
+
+$btn-green: #7DBB91;
+$btn-green--hover: #91C5A2;
+$btn-green--active: #77B28A;
+
+$btn-black: $grey--900;
+$btn-black--hover: $grey--700;
+$btn-black--active: $grey--1000;
+
+$btn-white: #fff;
+$btn-white--hover: #fff;
+$btn-white--active: #f2f2f2;
+
+// disabled button
+$color--disabled: #aaa;
+$bg-color--disabled: #e3e3e3;
+
+// colored button text
+$color--green-bg: #E5F1E9;
+$color--green-text: #649674;
+$color--green-text-hover: #E9F3EC;
+$color--green-text-active: #DAE5DD;
+
+$color--red-bg: #f7eaeb;
+$color--red-text: #D95767;
+
+$btn-height--md: 38px;
+$btn-height: 30px;
+$btn-height--xs: 26px;
+
+//circle
+
+.button {
+  position: relative;
+  display: block;
+  padding: 0 $indent-sm;
+  border: 1px solid transparent;
+  border-radius: $radius-default;
+  background-color: transparent;
+  cursor: pointer;
+  user-select: none;
+  line-height: 20px;
+  letter-spacing: .3px;
+  color: $color--text;
+  outline: none;
+  text-decoration: none;
+  transition: $transition-default;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &.is-disabled {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+
+  &--width-auto {
+    padding: 0;
+    width: auto;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--inline {
+    display: inline-flex;
+  }
+
+  &--primary {
+    background-color: $color--primary;
+    color: $color--white;
+
+    &:hover {
+      background-color: $color--primary-hover;
+      color: $color--white;
+    }
+
+    &.is-disabled {
+      &:hover {
+        background-color: $color--primary;
+      }
+    }
+
+    &:active {
+      background-color: $color--primary-active;
+    }
+  }
+
+  &--secondary {
+    background-color: $btn-secondary;
+    color: $color--text;
+
+    &:hover {
+      background-color: $btn-secondary--hover;
+      color: $color--text;
+    }
+
+    &.is-disabled {
+      &:hover {
+        background-color: $btn-secondary;
+      }
+    }
+
+    &:active {
+      background-color: $btn-secondary--active;
+    }
+  }
+
+  &--green {
+    background-color: $btn-green;
+    color: $color--white;
+
+    &:hover {
+      background-color: $btn-green--hover;
+      color: $color--white;
+    }
+
+    &.is-disabled {
+      &:hover {
+        background-color: $btn-green;
+      }
+    }
+
+    &:active {
+      background-color: $btn-green--active;
+    }
+  }
+
+  &--yellow {
+    background-color: $btn-yellow;
+    color: $color--white;
+
+    &:hover {
+      background-color: $btn-yellow--hover;
+      color: $color--white;
+    }
+
+    &.is-disabled {
+      &:hover {
+        background-color: $btn-yellow;
+      }
+    }
+
+    &:active {
+      background-color: $btn-yellow--active;
+    }
+  }
+
+  &--red {
+    background-color: $btn-red;
+    color: $color--white;
+
+    &:hover {
+      background-color: $btn-red--hover;
+      color: $color--white;
+    }
+
+    &.is-disabled {
+      &:hover {
+        background-color: $btn-red;
+      }
+    }
+
+    &:active {
+      background-color: $btn-red--active;
+    }
+  }
+
+  &--black {
+    background-color: $btn-black;
+    color: $color--white;
+
+    &:hover {
+      background-color: $btn-black--hover;
+      color: $color--white;
+    }
+
+    &.is-disabled {
+      &:hover {
+        background-color: $btn-black;
+      }
+    }
+
+    &:active {
+      background-color: $btn-black--active;
+    }
+  }
+
+  &--white {
+    background-color: $btn-white;
+    color: $color--text;
+
+    &:hover {
+      background-color: $btn-white--hover;
+      color: $color--text;
+    }
+
+    &.is-disabled {
+      &:hover {
+        background-color: $btn-white;
+      }
+    }
+
+    &:active {
+      background-color: $btn-white--active;
+    }
+  }
+
+  &--transparent {
+    border: 1px solid transparent;
+    background-color: transparent;
+    color: $color--text;
+
+    &:hover {
+      background-color: $btn-secondary;
+      color: $color--text;
+    }
+
+    &:active {
+      background-color: $btn-secondary--active;
+    }
+  }
+
+  &--md {
+    padding: 0 $indent-md;
+  }
+
+  &--xs {
+    padding: 0 $indent-xs;
+  }
+
+  &--circle, &--square {
+    padding: 0;
+  }
+
+  &--circle {
+    $btn-height--with-border: calc(#{$btn-height} + 2px);
+    $btn-height--md--with-border: calc(#{$btn-height--md} + 2px);
+    $btn-height--xs--with-border: calc(#{$btn-height--xs} + 2px);
+
+    @include size($btn-height--with-border, $btn-height--with-border);
+    color: $color--text;
+    border-radius: 50%;
+
+    .button--md & {
+      @include size($btn-height--md--with-border, $btn-height--md--with-border);
+    }
+
+    .button--xs & {
+      @include size($btn-height--xs--with-border, $btn-height--xs--with-border);
+    }
+  }
+}
+
+.button__body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: $btn-height;
+  font-size: $font-size--sm;
+
+  & :not(:first-child) {
+    margin: 0 0 0 $indent-sm;
+  }
+
+  &--reverse {
+    flex-direction: row-reverse;
+
+    & :not(:first-child) {
+      margin: 0 $indent-sm 0 0;
+    }
+  }
+
+  .button--md & {
+    height: $btn-height--md;
+    font-size: $font-size--md;
+  }
+
+  .button--xs & {
+    height: $btn-height--xs;
+    font-size: $font-size--xs;
+  }
+
+  .button--align-left & {
+    justify-content: flex-start;
+  }
+
+  .button--square & {
+    width: $btn-height;
+  }
+
+  .button--md.button--square & {
+    width: $btn-height--md;
+  }
+
+  .button--xs.button--square & {
+    width: $btn-height--xs;
+  }
+
+  &--circle {
+    @include size($btn-height, $btn-height);
+
+    .button--md & {
+      @include size($btn-height--md, $btn-height--md);
+    }
+
+    .button--xs & {
+      @include size($btn-height--xs, $btn-height--xs);
+    }
+  }
+}
+
+.button__icon {
+  display: flex;
+  flex-shrink: 0;
+  @include size(14px, 14px);
+
+  &--xs {
+    @include size(10px, 10px);
+  }
+
+  &--sm {
+    @include size(12px, 12px);
+  }
+
+  &--md {
+    @include size(16px, 16px);
+  }
+
+  &--lg {
+    @include size(20px, 20px);
+  }
+}
+
+.button__text {
+  @extend %ellipsis;
+}
